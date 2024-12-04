@@ -1,0 +1,44 @@
+version: '3.9'
+
+networks:
+  scss:
+    driver: bridge
+
+volumes:
+  redis: {}
+
+services:
+  web:
+    container_name: scss-api
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=app.py
+    volumes:
+      - .:/app  # Syncs the local ./data directory with /app/data in the container
+    networks:
+      - scss
+
+  redis:
+    image: "redis:alpine"
+    networks:
+      - scss
+
+  celery:
+    container_name: scss-celery
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    command: celery -A tasks.app worker --loglevel=info
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    depends_on:
+      - redis
+    volumes:
+      - .:/app  # Sync your project files
+    networks:
+      - scss
