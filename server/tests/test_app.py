@@ -4,7 +4,7 @@ import logging
 from flask import Flask
 
 # Import your app from app.py
-from app import app
+from app import create_app
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -14,6 +14,8 @@ logger = logging.getLogger(__name__)
 @pytest.fixture
 def client():
     """Flask test client fixture."""
+    app = create_app()  # Create the app instance
+    app.config['TESTING'] = True  # Enable testing mode
     with app.test_client() as client:
         yield client
 

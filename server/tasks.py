@@ -5,10 +5,10 @@ import pandas as pd
 
 from celery import Celery
 
-from pdf_parser import parse_pdf
+from server.pdf_parser import parse_pdf
 
 app = Celery('tasks')
-app.config_from_object('celeryconfig')
+app.config_from_object('server.celeryconfig')
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

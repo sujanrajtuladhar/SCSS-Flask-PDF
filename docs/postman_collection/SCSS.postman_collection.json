@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "5abc0f36-0523-4c82-af54-47051dcfdd88",
+		"name": "SCSS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "8095163",
+		"_collection_link": "https://lunar-space-774601.postman.co/workspace/DIRS~601adeaf-9d7c-4486-a7fc-5333ebbb9368/collection/8095163-5abc0f36-0523-4c82-af54-47051dcfdd88?action=share&source=collection_link&creator=8095163"
+	},
+	"item": [
+		{
+			"name": "PDF - POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/outcode/Downloads/user_list_report.pdf"
+						}
+					]
+				},
+				"url": "http://localhost:5000/upload"
+			},
+			"response": []
+		},
+		{
+			"name": "Status - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5000/status/caeb511b-bef1-4e96-b63f-463f4dbbbadc"
+			},
+			"response": []
+		}
+	]
+}

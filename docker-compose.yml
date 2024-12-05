@@ -18,7 +18,7 @@ services:
     environment:
       - FLASK_APP=app.py
     volumes:
-      - .:/app  # Syncs the local ./data directory with /app/data in the container
+      - .:/app
     networks:
       - scss
 
@@ -32,13 +32,13 @@ services:
     build:
       context: .
       dockerfile: .docker/Dockerfile
-    command: celery -A tasks.app worker --loglevel=info
+    command: celery -A server.tasks.app worker --loglevel=info
     environment:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
     depends_on:
       - redis
     volumes:
-      - .:/app  # Sync your project files
+      - .:/app
     networks:
       - scss

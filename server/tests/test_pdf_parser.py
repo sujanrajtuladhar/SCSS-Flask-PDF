@@ -2,7 +2,7 @@ import os
 import pytest
 import pandas as pd
 
-from pdf_parser import parse_pdf
+from server.pdf_parser import parse_pdf
 
 
 @pytest.fixture
