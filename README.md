@@ -152,9 +152,9 @@ docker compose exec web pytest
 
 Sample PDFs for testing are available in the test_data folder within the server/tests directory. These include:
 
-- [sample_empty_pdf.pdf](): A PDF file with no content.
-- [sample_with_tables.pdf](): A PDF file containing tables.
-- [sample_without_tables.pdf](): A PDF file without tables.
+- [sample_empty_pdf.pdf](server/tests/test_data/sample_empty_pdf.pdf): A PDF file with no content.
+- [sample_with_tables.pdf](server/tests/test_data/sample_with_tables.pdf): A PDF file containing tables.
+- [sample_without_tables.pdf](server/tests/test_data/sample_without_tables.pdf): A PDF file without tables.
 
 These files are used for validating the parsing functionality of the API.
 
