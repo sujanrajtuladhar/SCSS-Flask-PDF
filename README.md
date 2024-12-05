@@ -204,10 +204,12 @@ SCSS-Flask-PDF/
 ├─ README.md
 ├─ app.py
 ├─ docker-compose.yml
-├─ requirements.txt
-├─ doc/
+├─ docs/
+│  ├─ explanation/
+│  │  └─ functions_explanation.md
 │  └─ postman_collection/
 │     └─ SCSS.postman_collection.json
+├─ requirements.txt
 ├─ server/
 │  ├─ __init__.py
 │  ├─ celeryconfig.py
